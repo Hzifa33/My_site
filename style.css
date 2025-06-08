@@ -2,7 +2,7 @@
 ==========================================================================
     PORTFOLIO STYLESHEET FOR HZIFA33 - "THE DIGITAL COSMOS" THEME
     AUTHOR: GEMINI AI
-    VERSION: 1.1 (Revised)
+    VERSION: 1.2 (Simplified Header)
 ==========================================================================
 */
 
@@ -75,12 +75,12 @@ body:hover .cursor-dot, body:hover .cursor-glow {
 }
 
 /* Cursor hover effects */
-a:hover ~ .cursor-glow, .cv-button:hover ~ .cursor-glow {
+a:hover ~ .cursor-glow {
     transform: translate(-50%, -50%) scale(1.5);
     background-color: rgba(170, 0, 255, 0.3);
     box-shadow: 0 0 30px var(--secondary-glow-color);
 }
-a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
+a:hover ~ .cursor-dot {
     background-color: var(--secondary-glow-color);
 }
 
@@ -112,7 +112,7 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
 
 .header-content {
     display: flex;
-    justify-content: space-between; /* Keeps items at opposite ends */
+    justify-content: flex-start; /* Aligns the logo to the left */
     align-items: center;
     max-width: 1600px;
     margin: 0 auto;
@@ -133,61 +133,9 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
     text-shadow: 0 0 20px var(--secondary-glow-color);
 }
 
-.cv-button {
-    font-family: var(--font-secondary);
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--primary-text-color);
-    text-decoration: none;
-    border: 2px solid var(--border-color);
-    padding: 10px 25px;
-    border-radius: 50px;
-    position: relative;
-    overflow: hidden;
-    transition: all var(--transition-speed) ease;
-    z-index: 1;
-    backdrop-filter: blur(5px);
-}
-
-.cv-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, var(--secondary-glow-color) 0%, var(--primary-glow-color) 100%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.7s ease, height 0.7s ease;
-    z-index: -1;
-}
-
-.cv-button:hover::before {
-    width: 250px;
-    height: 250px;
-}
-
-.cv-button:hover {
-    color: #fff;
-    border-color: rgba(170, 0, 255, 0.7);
-    box-shadow: 0 0 25px rgba(170, 0, 255, 0.5);
-}
-
-.cv-button span {
-    margin-right: 10px;
-}
-
-.cv-button i {
-    transition: transform 0.4s ease;
-}
-
-.cv-button:hover i {
-    transform: translateY(2px);
-}
 
 /* -------------------
-   5. Hero Section (REVISED)
+   5. Hero Section
    ------------------- */
 .content-wrapper {
     position: relative;
@@ -202,8 +150,8 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
     min-height: 100vh;
     text-align: center;
     padding: 0 20px;
-    position: relative; /* CRITICAL FIX: This contains the absolutely positioned scroll prompt */
-    overflow: hidden; /* Prevents any potential overflow issues */
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -331,7 +279,7 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
     text-shadow: 0 0 15px var(--social-color);
 }
 
-/* Scroll Down Prompt (REVISED) */
+/* Scroll Down Prompt */
 .scroll-down-prompt {
     position: absolute;
     bottom: 30px;
@@ -399,7 +347,7 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
 /* -------------------
    6. General Section Styling
    ------------------- */
-.experience-section, .languages-section {
+.experience-section, .languages-section, .cv-image-section {
     padding: 100px 5%;
     max-width: 1200px;
     margin: 0 auto;
@@ -408,7 +356,7 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.experience-section.is-visible, .languages-section.is-visible {
+.experience-section.is-visible, .languages-section.is-visible, .cv-image-section.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -577,7 +525,31 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
 
 
 /* -------------------
-   9. Footer
+   9. CV Image Section
+   ------------------- */
+.cv-image-section {
+    max-width: 900px; /* Adjusted width */
+    text-align: center;
+}
+
+.resume-image-container {
+    margin-top: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 25px rgba(0, 174, 255, 0.1);
+}
+
+.resume-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+
+/* -------------------
+   10. Footer
    ------------------- */
 .main-footer-bottom {
     text-align: center;
@@ -590,7 +562,7 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
 }
 
 /* -------------------
-   10. Animations & Media Queries (REVISED)
+   11. Animations & Media Queries
    ------------------- */
 @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-50px); }
@@ -622,28 +594,20 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
     }
 
     .header-content {
-        flex-direction: row; /* Ensure it stays a row */
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: center; /* Centers the logo on mobile */
         width: 100%;
     }
-
+    
     .logo a {
-        font-size: 1.5rem;
-    }
-
-    .cv-button {
-        padding: 8px 18px;
-        font-size: 0.8rem;
-    }
-    .cv-button span {
-        margin-right: 8px;
+        font-size: 1.8rem; /* Adjusted for mobile view */
     }
     
     .hero-section {
         padding-top: 100px;
         padding-bottom: 80px;
         min-height: auto;
-        justify-content: center; /* Re-center content on mobile */
+        justify-content: center;
     }
 
     .profile-picture-container {
@@ -674,10 +638,10 @@ a:hover ~ .cursor-dot, .cv-button:hover ~ .cursor-dot {
         bottom: auto;
         left: auto;
         transform: none;
-        margin-top: 60px; /* Space between social links and the prompt */
+        margin-top: 60px;
         padding-bottom: 20px;
         width: 100%;
-        animation: none; /* Disable fade-in on mobile as it's part of the flow */
+        animation: none;
         opacity: 1;
     }
-}
+    }
