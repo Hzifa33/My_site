@@ -1,26 +1,15 @@
-/*
-==========================================================================
-    PORTFOLIO SCRIPT FOR HZIFA33 - "THE DIGITAL COSMOS" THEME
-    AUTHOR: GEMINI AI
-    VERSION: 1.0
-==========================================================================
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- 1. PARTICLE.JS BACKGROUND INITIALIZATION ---
-    // This creates the interactive, starry background effect.
     particlesJS("particles-js", {
         "particles": {
             "number": {
-                "value": 100, // Number of particles
+                "value": 100, 
                 "density": {
                     "enable": true,
                     "value_area": 800
                 }
             },
             "color": {
-                "value": "#ffffff" // Particle color
+                "value": "#ffffff" 
             },
             "shape": {
                 "type": "circle",
@@ -56,12 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 "enable": true,
                 "distance": 150,
                 "color": "#ffffff",
-                "opacity": 0.2, // Line opacity
+                "opacity": 0.2, 
                 "width": 1
             },
             "move": {
                 "enable": true,
-                "speed": 1.5, // Particle movement speed
+                "speed": 1.5, 
                 "direction": "none",
                 "random": false,
                 "straight": false,
@@ -79,11 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
             "events": {
                 "onhover": {
                     "enable": true,
-                    "mode": "grab" // 'grab' or 'repulse' or 'bubble'
+                    "mode": "grab" 
                 },
                 "onclick": {
                     "enable": true,
-                    "mode": "push" // 'push' or 'remove'
+                    "mode": "push" 
                 },
                 "resize": true
             },
@@ -113,56 +102,38 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "retina_detect": true
     });
-
-
-    // --- 2. CUSTOM CURSOR MOVEMENT ---
-    // This script makes the custom cursor follow the mouse pointer.
     const cursorGlow = document.querySelector('.cursor-glow');
     const cursorDot = document.querySelector('.cursor-dot');
-
-    // Check if the device is a touch device
     const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     if (!isTouchDevice()) {
         window.addEventListener('mousemove', e => {
             const posX = e.clientX;
             const posY = e.clientY;
-
-            // Animate glow with a slight delay for a trailing effect
             cursorGlow.animate({
                 left: `${posX}px`,
                 top: `${posY}px`
             }, { duration: 500, fill: "forwards" });
-
-            // Dot follows precisely
             cursorDot.animate({
                 left: `${posX}px`,
                 top: `${posY}px`
             }, { duration: 100, fill: "forwards" });
         });
     }
-
-
-    // --- 3. SCROLL-BASED FADE-IN ANIMATIONS ---
-    // This makes sections and elements appear as the user scrolls down.
     const scrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Optional: stop observing once visible
+                observer.unobserve(entry.target); 
             }
         });
     }, {
-        root: null, // observes intersections relative to the viewport
-        threshold: 0.1 // triggers when 10% of the element is visible
+        root: null, 
+        threshold: 0.1 
     });
-
-    // Observe all sections with the 'experience-section' and 'languages-section' classes
     document.querySelectorAll('.experience-section, .languages-section').forEach(section => {
         scrollObserver.observe(section);
     });
-    
-    // Observe language skill items for staggered animation
     const languageSkillObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -171,15 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.5 // trigger when 50% of the item is visible
+        threshold: 0.5 
     });
     
     document.querySelectorAll('.language-skill').forEach(skill => {
         languageSkillObserver.observe(skill);
     });
-
-    // --- 4. 3D TILT EFFECT FOR EXPERIENCE CARDS ---
-    // Adds a subtle 3D perspective effect on hover.
     const experienceCards = document.querySelectorAll('.experience-card');
 
     if (!isTouchDevice()) {
@@ -190,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const y = e.clientY - rect.top;
 
                 const { width, height } = rect;
-                const rotateX = (y / height - 0.5) * -15; // Max rotation 7.5deg
-                const rotateY = (x / width - 0.5) * 15;   // Max rotation 7.5deg
+                const rotateX = (y / height - 0.5) * -15; 
+                const rotateY = (x / width - 0.5) * 15;   
 
                 card.style.transition = 'transform 0.1s ease-out';
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
@@ -203,9 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    // --- 5. SMOOTH SCROLL FOR ANY # ANCHOR LINKS (Optional) ---
-    // If you add more internal links, this will handle the smooth scroll.
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
