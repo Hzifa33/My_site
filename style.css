@@ -1,14 +1,3 @@
-/*
-==========================================================================
-    PORTFOLIO STYLESHEET FOR HZIFA33 - "THE DIGITAL COSMOS" THEME
-    AUTHOR: GEMINI AI
-    VERSION: 1.2 (Simplified Header)
-==========================================================================
-*/
-
-/* -------------------
-   1. Global Resets & Variables
-   ------------------- */
 :root {
     --primary-glow-color: #00aeff;
     --secondary-glow-color: #aa00ff;
@@ -39,12 +28,8 @@ body {
     font-weight: 400;
     line-height: 1.7;
     overflow-x: hidden;
-    cursor: none; /* Hide default cursor */
+    cursor: none; 
 }
-
-/* -------------------
-   2. Custom Cursor
-   ------------------- */
 .cursor-dot, .cursor-glow {
     position: fixed;
     top: 0;
@@ -73,8 +58,6 @@ body {
 body:hover .cursor-dot, body:hover .cursor-glow {
     opacity: 1;
 }
-
-/* Cursor hover effects */
 a:hover ~ .cursor-glow {
     transform: translate(-50%, -50%) scale(1.5);
     background-color: rgba(170, 0, 255, 0.3);
@@ -83,10 +66,6 @@ a:hover ~ .cursor-glow {
 a:hover ~ .cursor-dot {
     background-color: var(--secondary-glow-color);
 }
-
-/* -------------------
-   3. Particle JS Background
-   ------------------- */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -95,10 +74,6 @@ a:hover ~ .cursor-dot {
     left: 0;
     z-index: -1;
 }
-
-/* -------------------
-   4. Header & Navigation (REVISED)
-   ------------------- */
 .main-header {
     position: fixed;
     top: 0;
@@ -112,7 +87,7 @@ a:hover ~ .cursor-dot {
 
 .header-content {
     display: flex;
-    justify-content: flex-start; /* Aligns the logo to the left */
+    justify-content: flex-start; 
     align-items: center;
     max-width: 1600px;
     margin: 0 auto;
@@ -132,11 +107,6 @@ a:hover ~ .cursor-dot {
     color: #fff;
     text-shadow: 0 0 20px var(--secondary-glow-color);
 }
-
-
-/* -------------------
-   5. Hero Section
-   ------------------- */
 .content-wrapper {
     position: relative;
     z-index: 10;
@@ -209,7 +179,6 @@ a:hover ~ .cursor-dot {
     position: relative;
     text-transform: uppercase;
 }
-/* Glitch effect for heading */
 .main-heading::before,
 .main-heading::after {
     content: attr(data-text);
@@ -278,8 +247,6 @@ a:hover ~ .cursor-dot {
     transform: translateY(-5px) scale(1.1);
     text-shadow: 0 0 15px var(--social-color);
 }
-
-/* Scroll Down Prompt */
 .scroll-down-prompt {
     position: absolute;
     bottom: 30px;
@@ -343,10 +310,6 @@ a:hover ~ .cursor-dot {
   50% { opacity: .5; }
   100% { opacity: 1; }
 }
-
-/* -------------------
-   6. General Section Styling
-   ------------------- */
 .experience-section, .languages-section, .cv-image-section {
     padding: 100px 5%;
     max-width: 1200px;
@@ -383,11 +346,6 @@ a:hover ~ .cursor-dot {
     background: linear-gradient(90deg, var(--secondary-glow-color), var(--primary-glow-color));
     box-shadow: 0 0 10px var(--primary-glow-color);
 }
-
-
-/* -------------------
-   7. Experience Section
-   ------------------- */
 .experience-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -457,11 +415,6 @@ a:hover ~ .cursor-dot {
     font-size: 1rem;
     color: var(--secondary-text-color);
 }
-
-
-/* -------------------
-   8. Languages Section
-   ------------------- */
 .languages-container {
     display: flex;
     flex-direction: column;
@@ -477,7 +430,6 @@ a:hover ~ .cursor-dot {
     opacity: 1;
     transform: translateX(0);
 }
-/* Staggered animation */
 .language-skill:nth-child(1).is-visible { transition-delay: 0.2s; }
 .language-skill:nth-child(2).is-visible { transition-delay: 0.4s; }
 .language-skill:nth-child(3).is-visible { transition-delay: 0.6s; }
@@ -512,7 +464,7 @@ a:hover ~ .cursor-dot {
 
 .progress-bar {
     height: 100%;
-    width: 0; /* Initial width */
+    width: 0; 
     background: linear-gradient(90deg, var(--primary-glow-color), var(--secondary-glow-color));
     border-radius: 10px;
     box-shadow: 0 0 10px var(--primary-glow-color), 0 0 5px var(--secondary-glow-color);
@@ -522,13 +474,8 @@ a:hover ~ .cursor-dot {
 .languages-section.is-visible .progress-bar {
     width: var(--progress-level);
 }
-
-
-/* -------------------
-   9. CV Image Section
-   ------------------- */
 .cv-image-section {
-    max-width: 900px; /* Adjusted width */
+    max-width: 900px; 
     text-align: center;
 }
 
@@ -546,11 +493,6 @@ a:hover ~ .cursor-dot {
     height: auto;
     border-radius: 4px;
 }
-
-
-/* -------------------
-   10. Footer
-   ------------------- */
 .main-footer-bottom {
     text-align: center;
     padding: 30px 20px;
@@ -560,10 +502,6 @@ a:hover ~ .cursor-dot {
     border-top: 1px solid var(--border-color);
     background: rgba(1, 1, 3, 0.5);
 }
-
-/* -------------------
-   11. Animations & Media Queries
-   ------------------- */
 @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-50px); }
     to { opacity: 1; transform: translateY(0); }
@@ -578,15 +516,13 @@ a:hover ~ .cursor-dot {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-/* Responsive Design */
 @media (max-width: 768px) {
     body {
-        cursor: auto; /* Re-enable default cursor for touch devices */
+        cursor: auto; 
     }
 
     .cursor-dot, .cursor-glow {
-        display: none; /* Hide custom cursor on mobile */
+        display: none; 
     }
 
     .main-header {
@@ -595,12 +531,12 @@ a:hover ~ .cursor-dot {
 
     .header-content {
         flex-direction: row;
-        justify-content: center; /* Centers the logo on mobile */
+        justify-content: center; 
         width: 100%;
     }
     
     .logo a {
-        font-size: 1.8rem; /* Adjusted for mobile view */
+        font-size: 1.8rem; 
     }
     
     .hero-section {
